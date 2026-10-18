@@ -7,14 +7,17 @@
 
 \usepackage{lipsum}
 \usepackage{mwe}
+\usepackage{environ}
+
+% \RenewEnviron{figure}{}
+% \RenewEnviron{table}{}
+% \RenewEnviron{listing}{}
 
 \usemintedstyle{bw}
 
-\usepackage{titlesec}
 \titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
 
-\title{\LaTeX\ Template File}
-\author{Eason Shao}
+\newcommand{\rowdots}{\vphantom{0}\smash{\raisebox{-0.7ex}{\vdots}}}
 
 \begin{document}
 % \maketitle
@@ -70,8 +73,16 @@ The output is in \autoref{tab:example}.The code is as in \autoref{lst:example}.
 \appendix
 \section{Listings}
 
+Program was coded in a \verb|.ipynb| Jupyter Notebook (\verb|notebook.ipynb|, a fresh version \verb|notebook-fresh.ipynb| without outputs) using Python 3.15.0, utilising packages \verb|numpy|, \verb|pandas| and \verb|matplotlib|. In addition, a custom \verb|macros.tex| is used for producing the \LaTeX formulae in titles in the diagrams, but is itself irrelevant to the code and the mathematics.
+
+A program \verb|convert-csv-to-latex.py| is used to convert the exported \verb|.csv| data files to \LaTeX-formatted \verb|tabular| environments, and is itself irrelevant to the mathematical contents.
+
+The following listings are key segments of the original code (exported into \verb|notebook.py|) related to the problem, and might not run individually. The Python code can be run as a whole, and will export the data into \verb|.csv| and figures into \verb|.png|.
+
+All programs mentioned above apart from \verb|macros.tex| and \verb|convert-csv-to-latex.py| are submitted for inspection.
+
 \begin{listing}[htp]
-    \inputminted{python}{src/test.py}
+    \inputminted{python}{src/notebook.py}
     \caption{Testing Python code}
     \label{lst:example}%
 \end{listing}
